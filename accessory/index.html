@@ -2,8 +2,10 @@
 <html>
 
 <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>Car Accessories</title>
     <link rel="stylesheet" href="/css/global.css">
+
 </head>
 
 <body>
@@ -21,7 +23,7 @@
         <label for="amount">Amount:</label>
         <input type="number" id="amount" min="1" value="1">
         <br>
-        <button type="button" onclick="addToProductList()">Add</button>
+        <button type="button" id="addButton">Add</button>
     </form>
 
     <table id="productList">
@@ -32,58 +34,62 @@
                 <th>Price</th>
             </tr>
         </thead>
-        <tbody id="bodddy">
-            <!-- Product list items will be added here dynamically -->
+        <tbody id="list">
+          
         </tbody>
         <tfoot>
             <tr>
                 <td colspan="2">Total Price:</td>
                 <td id="totalPrice">0</td>
             </tr>
+            <tr>
+                <td colspan="2">VAT Amount:</td>
+                <td id="vatAmount">0</td>
+            </tr>
+            <tr>
+                <td colspan="2">NET Amount:</td>
+                <td id="netAmount">0</td>
+            </tr>
+            
         </tfoot>
     </table>
-    <label for="vatAmount">VAT Amount:</label>
-    <span id="vatAmount">0.00</span>
-    <br>
-    <label for="netAmount">NET Amount:</label>
-    <span id="netAmount">0.00</span>
+
 
     <script>
         var totalPrice = 0;
-
+    
         function addToProductList() {
-            var accessorySelect = document.getElementById("accessory");
-            var accessoryOption = accessorySelect.options[accessorySelect.selectedIndex];
-            var accessoryName = accessoryOption.text;
-            var accessoryPrice = parseFloat(accessoryOption.value);
-            var amountInput = document.getElementById("amount");
-            var amount = parseInt(amountInput.value);
-
-            var productList = document.getElementById("bodddy");
-            var newRow = productList.insertRow(-1);
-            var accessoryCell = newRow.insertCell(0);
-            var amountCell = newRow.insertCell(1);
-            var priceCell = newRow.insertCell(2);
-
-            accessoryCell.innerHTML = accessoryName;
-            amountCell.innerHTML = amount;
-            priceCell.innerHTML = (accessoryPrice * amount).toFixed(2);
-
+            var $accessorySelect = $("#accessory");
+            var $accessoryOption = $accessorySelect.find("option:selected");
+            var accessoryName = $accessoryOption.text();
+            var accessoryPrice = parseFloat($accessoryOption.val());
+            var amount = parseInt($("#amount").val());
+    
+            var $productList = $("#list");
+            var $newRow = $("<tr>");
+            var $accessoryCell = $("<td>").text(accessoryName);
+            var $amountCell = $("<td>").text(amount);
+            var $priceCell = $("<td>").text((accessoryPrice * amount).toFixed(2));
+    
+            $newRow.append($accessoryCell).append($amountCell).append($priceCell);
+            $productList.append($newRow);
+    
             // Update the total price
             totalPrice += accessoryPrice * amount;
-            document.getElementById("totalPrice").innerHTML = totalPrice.toFixed(2);
-
+            $("#totalPrice").text(totalPrice.toFixed(2));
+    
             // Calculate VAT and NET Amount
             var vatRate = 0.07; // 7% VAT rate
             var vatAmount = totalPrice * vatRate;
-            document.getElementById("vatAmount").textContent = vatAmount.toFixed(2);
+            $("#vatAmount").text(vatAmount.toFixed(2));
             var netAmount = totalPrice + vatAmount;
-            document.getElementById("netAmount").textContent = netAmount.toFixed(2);
+            $("#netAmount").text(netAmount.toFixed(2));
         }
+    
+        $(document).ready(function(){
+            $("#addButton").on("click", addToProductList);
+        });
     </script>
 </body>
 
-</html>
-
- 
 </html>
