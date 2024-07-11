@@ -4,13 +4,12 @@
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>Car Accessories</title>
-    <link rel="stylesheet" href="/css/global.css">
-
+    <link rel="shortcut icon" href="mylogo.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
-    <h1>Car Accessories</h1>
-
+    <!-- <h1>Car Accessories</h1>
     <form id="accessoryForm">
         <label for="accessory">Select an accessory:</label>
         <select id="accessory">
@@ -49,13 +48,136 @@
             <tr>
                 <td colspan="2">NET Amount:</td>
                 <td id="netAmount">0</td>
-            </tr>
-            
+            </tr>     
         </tfoot>
-    </table>
+    </table> -->
+
+    <section class="bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h2 class="text-danger font-weight-bold">Dest Road</h2>
+                    <p>
+                        Bangsaothong
+                        <br>Samutrprakarn
+                        <br>THAILAND
+                        <br>30000
+                        <br>
+    
+                        <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+                        : 12345678
+    
+                        <br>
+                        <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+                        : 12345678
+                </div>
+                <div class="col-sm-6"></div>
+                <div class="col-sm-3 text-center">
+                    <h1 class="text-danger font-weight-bold">Quotation</h1>
+                    <img src="mylogo.png" style="width:100px;height:100px;">
+                </div>
+            </div>
+        </div>
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3 class="text-danger font-weight-bold">Customer:</h3>
+                    <b>Sample customer name 001</b><br>
+                    Sample address line1<br>
+                    Sample address line2<br>
+                    Sample address line3
+                </div>
+                <div class="col-sm-4">
+                    <h3 class="text-danger font-weight-bold">Ship to:</h3>
+                    <b>Sample customer name 001</b><br>
+                    Sample address line1<br>
+                    Sample address line2<br>
+                    Sample address line3
+    
+                </div>
+    
+                <div class="col-sm-4">
+                    <h4 class="quotationDate text-danger font-weight-bold">2024/7/10</h4>
+                </div>
+            </div>
+        </div>
+    
+        <button type=" button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+            Add Item
+        </button>
+    
+        <table class=" table table-striped table-bordered table-condensed" id="quotationTable">
+            <thead class="bg-danger text-white">
+                <tr>
+                    <th>Quantity</th>
+                    <th>Description</th>
+                    <th>Unit Price</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody >
+    
+            </tbody>
+    
+            <tfoot class="bg-secondary text-white">
+                <tr id="sub-total">
+                    <td colspan="3" class="text-right font-weight-semibold"> Subtotal</td>
+                    <td colspan="1" class="text-right font-weight-semibold" id="subTotal">---</td>
+                </tr>
+                <tr>
+                     <td colspan="3" class="text-right font-weight-semibold"> VAT</td>
+                       <td colspan="1" class="text-right font-weight-semibold" id="vat">---</td>
+                </tr>
+                <tr>
+                       <td colspan="3" class="text-right font-weight-semibold"> Shipping &amp; Handling</td>
+                      <td colspan="1" class="text-right font-weight-semibold" id="bottom-line">---</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-right font-weight-semibold"> Total Due</td>
+                    <td colspan="1" class="text-right font-weight-semibold" id="total">---</td>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title" id="exampleModalLabel">Add Item</h2>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table">
+                                        <tr>
+                                            <td>Description</td>
+                                            <td><input type="text" id="newItemDescription"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Price Per Unit</td>
+                                            <td><input type="number" min="0" id="newItemPPU"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Quantity</td>
+                                            <td><input type="number" min="0" id="newItemQty"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" onclick="addItem()">Save New
+                                        Item</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
-    <script>
+    <!-- <script>
         var totalPrice = 0;
     
         function addToProductList() {
@@ -89,7 +211,90 @@
         $(document).ready(function(){
             $("#addButton").on("click", addToProductList);
         });
+    </script> -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
     </script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous">
+    </script>
+    <script>
+        var quoationData = []
+
+        function addItem() {
+            var d = $("#newItemDescription").val()
+            var u = $("#newItemPPU").val()
+            var q = $("#newItemQty").val()
+            console.debug(d, u, q)
+            quoationData.push({
+                description: d,
+                quantity: Number.parseFloat(q),
+                unitPrice: Number.parseFloat(u)
+            })
+            $('#exampleModal').modal('hide')
+            renderTable()
+        }
+
+        function renderTable() {
+            var data = quoationData
+            var subTotal = 0
+            data.forEach((e) => {
+                subTotal = subTotal + (e.unitPrice * e.quantity)
+            })
+            var vat = (subTotal * .07).toFixed(2)
+            var total = subTotal * 1.07
+
+            console.log('subTotal', subTotal)
+            $("#subTotal").html("" + subTotal)
+            $("#vat").html("" + vat)
+            $("#total").html("" + total)
+
+            var dataRows = data.map((e,i) => {
+                let amount = e.quantity * e.unitPrice
+                return `<tr class="data-row bg-secondary">
+            <td class="text-center">${e.quantity}</td>
+            <td class="data">
+                ${e.description}<button onclick="deleteItem(${i})" class="ml-2">X</button>
+            </td>
+            <td class="text-right">${e.unitPrice.toFixed(2)}</td>
+            <td class="text-right">${amount.toFixed(2)}</td>
+        </tr>`;                        
+            })
+
+            $(".data-row").remove()
+
+            // Insert into the table
+            dataRows.forEach((r) => {
+                $('#quotationTable tbody').before(r)
+            })
+
+        }
+
+        function deleteItem(i) {
+            quoationData.splice(i,1)
+            renderTable()
+        }
+
+        $(document).ready(function () {
+            $.getJSON('data/data.json',
+                data => {
+                    // render the table
+                    quoationData = data;
+
+                    var d = new Date()
+                    $('#quotationDate').html(d.toDateString())
+                    renderTable()
+                })
+
+        })
+    </script>
+
+    </body>
 
 </html>
