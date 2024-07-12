@@ -9,67 +9,25 @@
 </head>
 
 <body>
-    <!-- <h1>Car Accessories</h1>
-    <form id="accessoryForm">
-        <label for="accessory">Select an accessory:</label>
-        <select id="accessory">
-            <option value="100">Car Cover</option>
-            <option value="200">Floor Mats</option>
-            <option value="30">Seat Covers</option>
-            <option value="40">Phone Holder</option>
-        </select>
-        <br>
-        <label for="amount">Amount:</label>
-        <input type="number" id="amount" min="1" value="1">
-        <br>
-        <button type="button" id="addButton">Add</button>
-    </form>
-
-    <table id="productList">
-        <thead>
-            <tr>
-                <th>Accessory</th>
-                <th>Amount</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody id="list">
-          
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="2">Total Price:</td>
-                <td id="totalPrice">0</td>
-            </tr>
-            <tr>
-                <td colspan="2">VAT Amount:</td>
-                <td id="vatAmount">0</td>
-            </tr>
-            <tr>
-                <td colspan="2">NET Amount:</td>
-                <td id="netAmount">0</td>
-            </tr>     
-        </tfoot>
-    </table> -->
 
     <section class="bg-dark text-white">
-        <div class="container">
+        <div class="container" style="padding-top: 1.2rem;">
             <div class="row">
                 <div class="col-sm-3">
                     <h2 class="text-danger font-weight-bold">Dest Road</h2>
                     <p>
-                        Bangsaothong
-                        <br>Samutrprakarn
-                        <br>THAILAND
-                        <br>30000
+                        789 Maple Drive
+                        <br>Suite 101
+                        <br>New York City, EX
+                        <br>USA, 54321
                         <br>
     
                         <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
-                        : 12345678
+                        : (555) 123-4567
     
                         <br>
                         <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
-                        : 12345678
+                        : (555) 765-4321
                 </div>
                 <div class="col-sm-6"></div>
                 <div class="col-sm-3 text-center">
@@ -83,17 +41,17 @@
             <div class="row">
                 <div class="col-sm-4">
                     <h3 class="text-danger font-weight-bold">Customer:</h3>
-                    <b>Sample customer name 001</b><br>
-                    Sample address line1<br>
-                    Sample address line2<br>
-                    Sample address line3
+                    <b>John Doe</b><br>
+                    1234 Elm Street<br>
+                    Springfield<br>
+                    IL 62704
                 </div>
                 <div class="col-sm-4">
                     <h3 class="text-danger font-weight-bold">Ship to:</h3>
-                    <b>Sample customer name 001</b><br>
-                    Sample address line1<br>
-                    Sample address line2<br>
-                    Sample address line3
+                    <b>Walking Street</b><br>
+                    5678 Oak Avenue<br>
+                    Lincoln<br>
+                    NE 68510
     
                 </div>
     
@@ -103,197 +61,166 @@
             </div>
         </div>
     
-        <button type=" button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+        <!-- <button type=" button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+            Add Item
+        </button> -->
+        <button type="button" class="btn btn-info" style="display: block; margin: 0 auto; margin-top: 1rem; margin-bottom: 1rem;" data-toggle="modal" data-target="#exampleModal">
             Add Item
         </button>
-    
+
         <table class=" table table-striped table-bordered table-condensed" id="quotationTable">
             <thead class="bg-danger text-white">
                 <tr>
-                    <th>Quantity</th>
-                    <th>Description</th>
-                    <th>Unit Price</th>
-                    <th>Amount</th>
+                    <th class="text-center">Accessories</th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-center">Action</th>
+                    <th class="text-center">Amount</th>
                 </tr>
             </thead>
-            <tbody >
+
+            <tbody class="bg-secondary" id="list">
     
             </tbody>
     
             <tfoot class="bg-secondary text-white">
                 <tr id="sub-total">
-                    <td colspan="3" class="text-right font-weight-semibold"> Subtotal</td>
-                    <td colspan="1" class="text-right font-weight-semibold" id="subTotal">---</td>
+                    <td colspan="3" class="text-right font-weight-bold" > Subtotal</td>
+                    <td colspan="1" class="text-center font-weight-semibold" id="totalPrice">---</td>
                 </tr>
                 <tr>
-                     <td colspan="3" class="text-right font-weight-semibold"> VAT</td>
-                       <td colspan="1" class="text-right font-weight-semibold" id="vat">---</td>
+                     <td colspan="3" class="text-right font-weight-bold"> VAT</td>
+                       <td colspan="1" class="text-center font-weight-semibold" id="vatAmount">---</td>
                 </tr>
-                <tr>
+                <!-- <tr>
                        <td colspan="3" class="text-right font-weight-semibold"> Shipping &amp; Handling</td>
-                      <td colspan="1" class="text-right font-weight-semibold" id="bottom-line">---</td>
-                </tr>
+                      <td colspan="1" class="text-center font-weight-semibold" id="bottom-line">---</td>
+                </tr> -->
                 <tr>
-                    <td colspan="3" class="text-right font-weight-semibold"> Total Due</td>
-                    <td colspan="1" class="text-right font-weight-semibold" id="total">---</td>
+                    <td colspan="3" class="text-right font-weight-bold"> Total Price</td>
+                    <td colspan="1" class="text-center font-weight-semibold" id="netAmount">---</td>
                 </tr>
             </tfoot>
         </table>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="text-danger font-weight-bold">Terms and Conditions</h3>
+                        <p>
+                            Please allow 2-4 weeks for delivery.
+                            <br>
+                            Please make checks payable to: Dest Road
+                            <br>
+                            Thank you for your business.
+                        </p>
+                    </div>
+                    <div class="col-sm-6">
+                        <h3 class="text-danger font-weight-bold">Notes</h3>
+                        <p>
+                            If you have any questions, please contact:
+                            <br>
+                            Phone: (555) 123-4567
+                            <br>
+                            Email: destvoyage34@gmail.com
+        </footer>
     </section>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h2 class="modal-title" id="exampleModalLabel">Add Item</h2>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <table class="table">
-                                        <tr>
-                                            <td>Description</td>
-                                            <td><input type="text" id="newItemDescription"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Price Per Unit</td>
-                                            <td><input type="number" min="0" id="newItemPPU"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Quantity</td>
-                                            <td><input type="number" min="0" id="newItemQty"></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" onclick="addItem()">Save New
-                                        Item</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel">Add Item</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="accessoryForm">
+                        <label for="accessory">Select an accessory:</label>
+                        <select id="accessory">
+                            <option value="100">Car Cover</option>
+                            <option value="200">Floor Mats</option>
+                            <option value="30">Seat Covers</option>
+                            <option value="40">Phone Holder</option>
+                        </select>
+                        <br>
+                        <label for="amount">Amount:</label>
+                        <input type="number" id="amount" min="1" value="1">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-info" onclick="addToProductList()">Save New Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-    <!-- <script>
-        var totalPrice = 0;
-    
-        function addToProductList() {
-            var $accessorySelect = $("#accessory");
-            var $accessoryOption = $accessorySelect.find("option:selected");
-            var accessoryName = $accessoryOption.text();
-            var accessoryPrice = parseFloat($accessoryOption.val());
-            var amount = parseInt($("#amount").val());
-    
-            var $productList = $("#list");
-            var $newRow = $("<tr>");
-            var $accessoryCell = $("<td>").text(accessoryName);
-            var $amountCell = $("<td>").text(amount);
-            var $priceCell = $("<td>").text((accessoryPrice * amount).toFixed(2));
-    
-            $newRow.append($accessoryCell).append($amountCell).append($priceCell);
-            $productList.append($newRow);
-    
-            // Update the total price
-            totalPrice += accessoryPrice * amount;
-            $("#totalPrice").text(totalPrice.toFixed(2));
-    
-            // Calculate VAT and NET Amount
-            var vatRate = 0.07; // 7% VAT rate
-            var vatAmount = totalPrice * vatRate;
-            $("#vatAmount").text(vatAmount.toFixed(2));
-            var netAmount = totalPrice + vatAmount;
-            $("#netAmount").text(netAmount.toFixed(2));
-        }
-    
-        $(document).ready(function(){
-            $("#addButton").on("click", addToProductList);
-        });
-    </script> -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
     </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous">
     </script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous">
     </script>
-    <script>
-        var quoationData = []
 
-        function addItem() {
-            var d = $("#newItemDescription").val()
-            var u = $("#newItemPPU").val()
-            var q = $("#newItemQty").val()
-            console.debug(d, u, q)
-            quoationData.push({
-                description: d,
-                quantity: Number.parseFloat(q),
-                unitPrice: Number.parseFloat(u)
-            })
-            $('#exampleModal').modal('hide')
-            renderTable()
-        }
+<script>
+    var totalPrice = 0;
 
-        function renderTable() {
-            var data = quoationData
-            var subTotal = 0
-            data.forEach((e) => {
-                subTotal = subTotal + (e.unitPrice * e.quantity)
-            })
-            var vat = (subTotal * .07).toFixed(2)
-            var total = subTotal * 1.07
+    function addToProductList() {
+        var $accessorySelect = $("#accessory");
+        var $accessoryOption = $accessorySelect.find("option:selected");
+        var accessoryName = $accessoryOption.text();
+        var accessoryPrice = parseFloat($accessoryOption.val());
+        var amount = parseInt($("#amount").val());
 
-            console.log('subTotal', subTotal)
-            $("#subTotal").html("" + subTotal)
-            $("#vat").html("" + vat)
-            $("#total").html("" + total)
+        var $productList = $("#list");
+        var $newRow = $("<tr>");
+        var $accessoryCell = $("<td>").text(accessoryName).addClass("text-center");
+        var $amountCell = $("<td>").text(amount).addClass("text-center");  
+        var $cancelCell = $("<td>").html('<button type="button" class="btn btn-danger" onclick="removeProduct(this)">X</button>').addClass("text-center");
+        var $priceCell = $("<td>").text((accessoryPrice * amount).toFixed(2)).addClass("text-center");
 
-            var dataRows = data.map((e,i) => {
-                let amount = e.quantity * e.unitPrice
-                return `<tr class="data-row bg-secondary">
-            <td class="text-center">${e.quantity}</td>
-            <td class="data">
-                ${e.description}<button onclick="deleteItem(${i})" class="ml-2">X</button>
-            </td>
-            <td class="text-right">${e.unitPrice.toFixed(2)}</td>
-            <td class="text-right">${amount.toFixed(2)}</td>
-        </tr>`;                        
-            })
+        $newRow.append($accessoryCell).append($amountCell).append($cancelCell).append($priceCell);
+        $productList.append($newRow);
 
-            $(".data-row").remove()
+        // Update the total price
+        totalPrice += accessoryPrice * amount;
+        $("#totalPrice").text(totalPrice.toFixed(2));
 
-            // Insert into the table
-            dataRows.forEach((r) => {
-                $('#quotationTable tbody').before(r)
-            })
+        // Calculate VAT and NET Amount
+        var vatRate = 0.07; // 7% VAT rate
+        var vatAmount = totalPrice * vatRate;
+        $("#vatAmount").text(vatAmount.toFixed(2));
+        var netAmount = totalPrice + vatAmount;
+        $("#netAmount").text(netAmount.toFixed(2));
+    }
 
-        }
+    function removeProduct(button) {
+        var $row = $(button).closest("tr");
+        var price = parseFloat($row.find("td").eq(3).text());
+        totalPrice -= price;
+        $row.remove();
+        $("#totalPrice").text(totalPrice.toFixed(2));
+        var vatRate = 0.07; // 7% VAT rate
+        var vatAmount = totalPrice * vatRate;
+        $("#vatAmount").text(vatAmount.toFixed(2));
+        var netAmount = totalPrice + vatAmount;
+        $("#netAmount").text(netAmount.toFixed(2));
+    }
 
-        function deleteItem(i) {
-            quoationData.splice(i,1)
-            renderTable()
-        }
-
-        $(document).ready(function () {
-            $.getJSON('data/data.json',
-                data => {
-                    // render the table
-                    quoationData = data;
-
-                    var d = new Date()
-                    $('#quotationDate').html(d.toDateString())
-                    renderTable()
-                })
-
-        })
-    </script>
+    $(document).ready(function(){
+        $("#addButton").on("click", addToProductList);
+    });
+</script>
 
     </body>
 
